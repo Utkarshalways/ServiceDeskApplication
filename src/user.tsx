@@ -14,7 +14,13 @@ import {firestore,auth} from "./firebaseAuth";
 
 const UserDashboard: React.FC = () => {
   const [tickets, setTickets] = useState<
-    Array<{ id: string; description: string; status: string }>
+    Array<{
+      id: string;
+      description: string;
+      status: string;
+      priority: string;
+      category:string;
+    }>
   >([]);
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("");
@@ -62,7 +68,13 @@ const UserDashboard: React.FC = () => {
           const ticketsData = snapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
-          })) as Array<{ id: string; description: string; status: string }>;
+          })) as Array<{
+            id: string;
+            description: string;
+            status: string;
+            priority: string;
+            category: string;
+          }>;
           setTickets(ticketsData);
         });
 
