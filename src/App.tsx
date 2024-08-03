@@ -19,7 +19,7 @@ const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = React.useState<boolean | null>(
     null
   );
-  const [isAdmin, setIsAdmin] = React.useState<boolean>(false);
+  // const [isAdmin, setIsAdmin] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     
@@ -54,14 +54,12 @@ const App: React.FC = () => {
         <Route
           path="/admin-dashboard"
           element={
-            isAuthenticated && isAdmin ? (
+           
               <AdminDashboard />
-            ) : (
-              <Navigate to="/login" />
-            )
+          
           }
         />
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/" element={<Navigate to="/register" />} />
       </Routes>
     </Router>
   );
